@@ -9,8 +9,6 @@
 #define PROGMEM
 #endif
 
-#include <CAN.h>
-
 #include "OBD2.h"
 
 const char PID_NAME_0x00[] PROGMEM = "PIDs supported [01 - 20]";
@@ -335,6 +333,11 @@ OBD2Class::OBD2Class() :
 
 OBD2Class::~OBD2Class()
 {
+}
+
+void OBD2Class::setPins(int cs, int irq)
+{
+  CAN.setPins(cs, irq);
 }
 
 int OBD2Class::begin()

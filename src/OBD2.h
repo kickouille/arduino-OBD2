@@ -4,6 +4,8 @@
 #ifndef OBD2_H
 #define OBD2_H
 
+#include <CAN.h>
+
 enum {
   PIDS_SUPPORT_01_20                                = 0x00,
   MONITOR_STATUS_SINCE_DTCS_CLEARED                 = 0x01,
@@ -115,6 +117,7 @@ public:
   OBD2Class();
   virtual ~OBD2Class();
 
+  void setPins(int cs = MCP2515_DEFAULT_CS_PIN, int irq = MCP2515_DEFAULT_INT_PIN);
   int begin();
   void end();
 
